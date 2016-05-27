@@ -13,7 +13,6 @@ public class Human implements Serializable {
 	private String name;  //관리인원 이름
 	private int age;	  //관리인원 나이
 	private String jumin; //관리인원 주민번호
-	private String type; 
 	
 	/**
 	 * 주어진 이름, 나이, 주민번호 정보를 가지고 새로운 Human 객체를 생성한다.
@@ -83,13 +82,6 @@ public class Human implements Serializable {
 		this.jumin = jumin;
 	}
 	
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	/**
 	 * Human 객체가 가지고 있는 이름, 나이, 주민번호 정보를 출력한다.
