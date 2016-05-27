@@ -14,18 +14,7 @@ public class Human implements Serializable {
 	private int age;	  //관리인원 나이
 	private String jumin; //관리인원 주민번호
 	
-	/**
-	 * 주어진 이름, 나이, 주민번호 정보를 가지고 새로운 Human 객체를 생성한다.
-	 * @param name 구성원의 이름
-	 * @param age 구성원의 나이
-	 * @param jumin 구성원의 주민번호
-	 * @param type 
-	 * */
-	public Human(String name, int age, String jumin, String type) {
-		this.name = name;
-		this.age = age;
-		this.jumin = jumin;
-	}
+	
 
 	//자식클래스에서 사용하기 위함(굳이 타입 안받아도 되니까)
 	public Human(String name, int age, String jumin) {
