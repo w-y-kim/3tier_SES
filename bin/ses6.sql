@@ -24,7 +24,11 @@ CREATE TABLE STAFF (
 commit
 
 
-drop table human;
+
 drop table professor;
 drop table trainee;
 drop table staff;
+drop table human;
+
+INSERT INTO HUMAN VALUES ('1',1,'1','교수');
+INSERT INTO PROFESSOR VALUES ('1','과학');
