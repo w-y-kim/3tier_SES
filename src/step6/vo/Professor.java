@@ -1,12 +1,14 @@
 package step6.vo;
 
+import java.io.Serializable;
+
 /**
  * <pre>
  * SES(Soft Engineer School) 관리 프로그램의 관리인원 중 교수에 대한 정보를 관리하는 클래스
  * Human 클래스를 상속하고 있으며, Professor 객체의 추가적인 정보인 전공을 멤버 변수로 갖는다.
  * </pre>
  * */
-public class Professor extends Human {
+public class Professor extends Human implements Serializable  {
 	private String major; //교수의 전공과목
 
 	/**

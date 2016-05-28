@@ -1,6 +1,8 @@
 package step6.protocol;
 
-public class Command {
+import java.io.Serializable;
+
+public class Command implements Serializable {
 
 	private int cmdValue;//요청한 명령 
 	private Object args;//서버메소드 파라미터로 전달할 인자값

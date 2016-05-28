@@ -1,12 +1,14 @@
 package step6.vo;
 
+import java.io.Serializable;
+
 /**
  * <pre>
  * SES(Soft Engineer School) 관리 프로그램의 관리인원 중 연수생에 대한 정보를 관리하는 클래스
  * Human 클래스를 상속하고 있으며, Trainee 객체의 추가적인 정보인 학번을 멤버 변수로 갖는다.
  * </pre>
  * */
-public class Trainee extends Human {
+public class Trainee extends Human implements Serializable  {
 	private String stdNo; //연수생 학번
 
 	/**

@@ -30,7 +30,6 @@ public class SESClientManager implements Manager {
 			//스트림인아웃은 각각의 매소드에서 실행시마다 수행 
 		
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -43,8 +42,10 @@ public class SESClientManager implements Manager {
 		cmd.setArgs(human);
 		try {
 			oos.writeObject(cmd);
+			result = (boolean) ois.readObject();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
@@ -55,7 +56,14 @@ public class SESClientManager implements Manager {
 	@Override
 	public Human findHuman(String jumin) {
 		Human result = null;
-		cmd = new 
+		cmd = new Command(Command.FIND_HUMAN); 
+		cmd.setArgs(jumin);
+		try {
+			oos.writeObject(cmd);
+			result = (Human) ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		System.out.println("클라 : findHuman 실행요청");
 		return result;
 	}
@@ -63,18 +71,44 @@ public class SESClientManager implements Manager {
 	@Override
 	public boolean deleteHuman(String jumin) {
 		boolean result = false; 
+		cmd = new Command(Command.DELETE_HUMAN);
+		cmd.setArgs(jumin);
+		try {
+			oos.writeObject(cmd);
+			result = (boolean) ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		System.out.println("클라 : deleteHuman 실행요청");
 		return result;
 	}
 
 	@Override
 	public void updateHuman(Human newData) {
+		cmd = new Command(Command.UPDATE_HUMAN);
+		cmd.setArgs(newData);
+		try {
+			oos.writeObject(cmd);
+			//void라 반환 값 없음 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		System.out.println("클라 : updateHuman 실행요청");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<Human> getHumanList() {
 		ArrayList<Human> result = new ArrayList<>(); 
+		cmd = new Command(Command.GET_ALL_HUMAN);
+		//para없음
+		try {
+			oos.writeObject(cmd);
+			result = (ArrayList<Human>) ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		System.out.println("클라 : getHumanList 실행요청");
 		return result;
 	}
