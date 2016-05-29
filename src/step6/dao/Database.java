@@ -179,9 +179,9 @@ public class Database implements Manager {
 				} else if (human instanceof Trainee) {
 					type = "학생";
 				} else if (human instanceof Staff) {
-					type = "학생";
+					type = "직원";
 				}
-				pstat.setString(4, type);// type못받음
+				pstat.setString(4, type);//DB에 타입을 넣어주는 방법! 
 				row = pstat.executeUpdate();
 				if (row == 1) {
 					System.out.println("Human테이블 레코드 insert");
@@ -460,23 +460,23 @@ public class Database implements Manager {
 		return result;
 	}
 
-	public static void main(String[] args) {
-		Database db = new Database();
-		Human h = new Professor("1", 2, "11-111", "수학");
-		Human h2 = new Professor("1111", 999, "1", "수dddd학");
-		try {
-			// db.insertHuman(h);
-//			db.findHuman("11-111");
-//			db.deleteHuman("11-111");
-			
-//			db.updateHuman(h2);
-			
-//			db.getHumanList();
-			System.out.println("===");
-			System.out.println(db.getHumanList());
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		Database db = new Database();
+//		Human h = new Professor("1", 2, "11-111", "수학");
+//		Human h2 = new Professor("1111", 999, "1", "수dddd학");
+//		try {
+//			// db.insertHuman(h);
+////			db.findHuman("11-111");
+////			db.deleteHuman("11-111");
+//			
+////			db.updateHuman(h2);
+//			
+////			db.getHumanList();
+//			System.out.println("===");
+//			System.out.println(db.getHumanList());
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 }

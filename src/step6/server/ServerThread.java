@@ -31,27 +31,27 @@ public class ServerThread implements Runnable {
 				cmd = (Command)ois.readObject();
 				Object para = cmd.getArgs();
 				switch (cmd.getCmdValue()) {
-				case Command.FIND_HUMAN:
+				case Command.FIND_HUMAN://찾기
 					Human h = sm.findHuman((String)para); 
 					oos.writeObject(h);
 					System.out.println("서버 : findHuman 실행");
 					break;
-				case Command.INSERT_HUMAN:
+				case Command.INSERT_HUMAN://추가
 					boolean insert_r = sm.insertHuman((Human) para);
 					oos.writeObject(insert_r);
 					System.out.println("서버 : insertHuman 실행");
 					break;  
-				case Command.DELETE_HUMAN:
+				case Command.DELETE_HUMAN://삭제
 					boolean del_r = sm.deleteHuman((String) para);
 					oos.writeObject(del_r);
 					System.out.println("서버 : deleteHuman 실행");
 					break;
-				case Command.UPDATE_HUMAN:
+				case Command.UPDATE_HUMAN://갱신
 					sm.updateHuman((Human) para);
 					//void라 스트림값 보낼 것이 없어요 
 					System.out.println("서버 : updateHuman 실행");
 					break;
-				case Command.GET_ALL_HUMAN:
+				case Command.GET_ALL_HUMAN://전체
 					ArrayList<Human> hList = sm.getHumanList();
 					oos.writeObject(hList);
 					System.out.println("서버 : getHumanList 실행");
